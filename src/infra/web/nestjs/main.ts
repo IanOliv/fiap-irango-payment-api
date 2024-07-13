@@ -28,14 +28,16 @@ const configureSentry = (app: INestApplication) => {
 
 const configureSwagger = (app: INestApplication) => {
   const swaggerOptions = new DocumentBuilder()
-    .setTitle('iRango API')
-    .setDescription('iRango API documentation')
+    .setTitle('iRango Payment API')
+    .setDescription('iRango Payment API documentation')
     .setVersion('0.0.1')
     // .addBearerAuth(undefined, 'Mobile')
     .build()
 
   const document = SwaggerModule.createDocument(app, swaggerOptions)
-  SwaggerModule.setup('docs', app, document)
+  SwaggerModule.setup('docs', app, document, {
+    jsonDocumentUrl: 'docs/json'
+  })
 }
 
 async function bootstrap () {
@@ -55,7 +57,7 @@ async function bootstrap () {
   app.useGlobalPipes(new ValidationPipe())
 
   await app.listen(envs.PORT, () => {
-    console.log(`Listening at ${envs.PORT}`)
+    console.info(`Listening at ${envs.PORT}`)
   })
 }
 

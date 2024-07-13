@@ -3,13 +3,13 @@
 NETWORK_NAME=local-network
 NETWORK_ID=$(shell docker network ls -qf "name=${NETWORK_NAME}")
 
-CONTAINER_MYSQL = local-mysql
-CONTAINER_REDIS = local-redis
-CONTAINER_BACKEND = service-irango-api
+CONTAINER_MYSQL = local-payment-mysql
+CONTAINER_REDIS = local-payment-redis
+CONTAINER_BACKEND = service-irango-payment-api
 
-DATABASE = irango
+DATABASE = irango-payment
 
-IMAGE ?= matob/irango-api
+IMAGE ?= ianoliv/irango-payment-api
 
 .PHONY: setup
 setup: clean down add-network create.env.file build up migration.run seed.run logs

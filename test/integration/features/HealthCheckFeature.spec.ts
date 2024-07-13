@@ -1,4 +1,4 @@
-import IntegrationTestSetup, { ITestSetup } from '@/test/integration/setup/IntegrationTestSetup'
+import IntegrationTestSetup, { ITestSetup } from 'test copy/integration/setup/IntegrationTestSetup'
 
 describe('Health Check Feature', () => {
   describe('GET /health-check', () => {

@@ -1,9 +1,8 @@
-# iRango Order API
+# iRango Payment API
 ![typescript](https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square)
 ![Node 20.10](https://shields.io/badge/Node-20.10.0-339933?logo=Node.js&logoColor=FFF&style=flat-square)
 ![nestjs](https://shields.io/badge/NestJS-E0234E?logo=NestJS&logoColor=FFF&style=flat-square)
 ![mysql](https://shields.io/badge/MySQL-4479A1?logo=MySQL&logoColor=FFF&style=flat-square)
-![redis](https://shields.io/badge/Redis-DC382D?logo=Redis&logoColor=FFF&style=flat-square)
 ![docker](https://shields.io/badge/Docker-2496ED?logo=Docker&logoColor=FFF&style=flat-square)
 ![swagger](https://shields.io/badge/Swagger-85EA2D?logo=Swagger&logoColor=FFF&style=flat-square)
 ![make](https://shields.io/badge/Make-00CC00?logo=Make&logoColor=FFF&style=flat-square)
@@ -11,6 +10,14 @@
 ![eslint](https://shields.io/badge/ESLint-4B32C3?logo=ESLint&logoColor=FFF&style=flat-square)
 ![editorconfig](https://shields.io/badge/EditorConfig-000000?logo=EditorConfig&logoColor=FFF&style=flat-square)
 ![typeorm](https://shields.io/badge/TypeORM-F37626?logo=TypeORM&logoColor=FFF&style=flat-square)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=IanOliv_fiap-irango-payment-api&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=IanOliv_fiap-irango-payment-api)
 
 This project involves the development of an API for a fast food self-service system, proposed as a Tech Challenge for the Software Architecture Postgraduate Course at FIAP.
 
@@ -19,6 +26,7 @@ For this project, we utilized the [TypeScript](https://www.typescriptlang.org/) 
 To build the API documentation, we've used [Swagger](https://swagger.io/) tool integrated with Nest.js, accessible through the endpoint: {irango_host}/docs
 
 ## [DDD - Domain Driven Design Diagrams](./docs/domain-driven-design.md)
+
 
 ## Workspace Dependencies
 - [Node 20.10](https://nodejs.org/)
@@ -48,8 +56,8 @@ docker network create -d bridge local-network
 cp .env.example .env
 docker-compose build --progress=plain
 docker-compose up
-docker-compose exec -it service-irango-api npm run migration:run
-docker-compose exec -it service-irango-api npm run seed:run
+docker-compose exec -it service-irango-payment-api npm run migration:run
+docker-compose exec -it service-irango-payment-api npm run seed:run
 ```
 
 ## Start project using npm
@@ -110,6 +118,9 @@ docker exec -it ${CONTAINER_MYSQL} mysql -uroot -ppassword -e "DROP DATABASE IF 
 docker-compose exec -it ${CONTAINER_BACKEND} npm run migration:run:test
 ```
 
+
+<img src="./docs/coverage.png" alt="Test Coverage" width="900" />
+
 ### Run all tests (We just have integrations for while)
 ```bash
 # With docker
@@ -136,6 +147,7 @@ docker-compose run service-irango-api npm run test:integration:one <FILE_NAME>
 # local
 npm run test:integration:one <FILE_NAME>
 ```
+
 
 ## Make commands
 ### Using Docker
